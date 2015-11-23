@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vimwiki by vimwiki</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Vimwiki</h1>
+        <p class="header">A personal wiki for Vim</p>
+
+
+
+        <ul>
+          <li><a class="buttons github" href="https://github.com/vimwiki">GitHub Profile</a></li>
+        </ul>
+
+      </header>
+      <section>
+        <p><img src="https://github.com/vimwiki/vimwiki/blob/dev/doc/screenshot_1.png" alt="screenshot1">
+<img src="https://github.com/vimwiki/vimwiki/blob/dev/doc/screenshot_2.png" alt="screenshot2"></p>
+
+<h2>
+<a id="intro" class="anchor" href="#intro" aria-hidden="true"><span class="octicon octicon-link"></span></a>Intro</h2>
+
+<p>Vimwiki is a personal wiki for Vim -- a number of linked text files that have
+their own syntax highlighting.</p>
+
+<p>With Vimwiki you can:</p>
+
+<ul>
+<li>organize notes and ideas</li>
+<li>manage todo-lists</li>
+<li>write documentation</li>
+<li>maintain a diary</li>
+<li>export everything to HTML</li>
+</ul>
+
+<p>To do a quick start press <code>&lt;Leader&gt;ww</code> (this is usually <code>\ww</code>) to go to your index
+wiki file.  By default it is located in <code>~/vimwiki/index.wiki</code>.</p>
+
+<p>Feed it with the following example:</p>
+
+<pre><code>= My knowledge base =
+    * Tasks -- things to be done _yesterday_!!!
+    * Project Gutenberg -- good books are power.
+    * Scratchpad -- various temporary stuff.
+</code></pre>
+
+<p>Place your cursor on <code>Tasks</code> and press Enter to create a link.  Once pressed,
+<code>Tasks</code> will become <code>[[Tasks]]</code> -- a Vimwiki link.  Press Enter again to
+open it.  Edit the file, save it, and then press Backspace to jump back to your
+index.</p>
+
+<p>A Vimwiki link can be constructed from more than one word.  Just visually
+select the words to be linked and press Enter.  Try it with <code>Project Gutenberg</code>.
+The result should look something like:</p>
+
+<pre><code>= My knowledge base =
+    * [[Tasks]] -- things to be done _yesterday_!!!
+    * [[Project Gutenberg]] -- good books are power.
+    * Scratchpad -- various temporary stuff.
+</code></pre>
+
+<h2>
+<a id="basic-markup" class="anchor" href="#basic-markup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Markup</h2>
+
+<pre><code>= Header1 =
+== Header2 ==
+=== Header3 ===
+
+
+*bold* -- bold text
+_italic_ -- italic text
+
+[[wiki link]] -- wiki link
+[[wiki link|description]] -- wiki link with description
+</code></pre>
+
+<p>Lists:</p>
+
+<pre><code>* bullet list item 1
+    - bullet list item 2
+    - bullet list item 3
+        * bullet list item 4
+        * bullet list item 5
+* bullet list item 6
+* bullet list item 7
+    - bullet list item 8
+    - bullet list item 9
+
+1. numbered list item 1
+2. numbered list item 2
+    a) numbered list item 3
+    b) numbered list item 4
+</code></pre>
+
+<p>For other syntax elements, see <code>:h vimwiki-syntax</code></p>
+
+<h2>
+<a id="key-bindings" class="anchor" href="#key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key bindings</h2>
+
+<p>normal mode:</p>
+
+<ul>
+<li>
+<code>&lt;Leader&gt;ww</code> -- Open default wiki index file.</li>
+<li>
+<code>&lt;Leader&gt;wt</code> -- Open default wiki index file in a new tab.</li>
+<li>
+<code>&lt;Leader&gt;ws</code> -- Select and open wiki index file.</li>
+<li>
+<code>&lt;Leader&gt;wd</code> -- Delete wiki file you are in.</li>
+<li>
+<code>&lt;Leader&gt;wr</code> -- Rename wiki file you are in.</li>
+<li>
+<code>&lt;Enter&gt;</code> -- Follow/Create wiki link</li>
+<li>
+<code>&lt;Shift-Enter&gt;</code> -- Split and follow/create wiki link</li>
+<li>
+<code>&lt;Ctrl-Enter&gt;</code> -- Vertical split and follow/create wiki link</li>
+<li>
+<code>&lt;Backspace&gt;</code> -- Go back to parent(previous) wiki link</li>
+<li>
+<code>&lt;Tab&gt;</code> -- Find next wiki link</li>
+<li>
+<code>&lt;Shift-Tab&gt;</code> -- Find previous wiki link</li>
+</ul>
+
+<p>For more keys, see <code>:h vimwiki-mappings</code></p>
+
+<h2>
+<a id="commands" class="anchor" href="#commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>Commands</h2>
+
+<ul>
+<li>
+<code>:Vimwiki2HTML</code> -- Convert current wiki link to HTML</li>
+<li>
+<code>:VimwikiAll2HTML</code> -- Convert all your wiki links to HTML</li>
+<li>
+<code>:help vimwiki-commands</code> -- list all commands</li>
+</ul>
+
+<h1>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>Make sure you have these settings in your vimrc file:</p>
+
+<pre><code>set nocompatible
+filetype plugin on
+syntax on
+</code></pre>
+
+<p>Without them Vimwiki will not work properly.</p>
+
+<h2>
+<a id="installation-using-pathogen" class="anchor" href="#installation-using-pathogen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation using <a href="http://www.vim.org/scripts/script.php?script_id=2332">Pathogen</a>
+</h2>
+
+<pre><code>cd ~/.vim
+mkdir bundle
+cd bundle
+git clone https://github.com/vimwiki/vimwiki.git
+</code></pre>
+
+<p>Or download the <a href="https://github.com/vimwiki/vimwiki/archive/master.zip">zip archive</a> and extract it in <code>~/.vim/bundle/</code></p>
+
+<p>Then launch Vim, run <code>:Helptags</code> and then <code>:help vimwiki</code> to verify it was installed.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
