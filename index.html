@@ -27,27 +27,43 @@
 
       </header>
       <section>
-        <p>Vimwiki is a personal wiki for Vim -- a number of linked text files that have
-their own syntax highlighting.</p>
+        <p>Vimwiki is a personal wiki for Vim – interlinked, plain text files written in a markup language</p>
 
-<p>With Vimwiki you can:</p>
+<h1>
+<a id="with-vimwiki-you-can" class="anchor" href="#with-vimwiki-you-can" aria-hidden="true"><span class="octicon octicon-link"></span></a>With Vimwiki you can</h1>
 
 <ul>
 <li>organize notes and ideas</li>
 <li>manage todo-lists</li>
 <li>write documentation</li>
-<li>maintain a diary</li>
+<li>write a diary</li>
+</ul>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>three markup syntaxes supported: Vimwiki's own syntax, Markdown, MediaWiki</li>
 <li>export everything to HTML</li>
+<li>link to other wiki pages and external files</li>
+<li>search through all wiki pages</li>
+<li>outline notes and tasks in indented lists</li>
+<li>quickly manipulate numbered and bulleted lists</li>
+<li>tag wiki pages or arbitrary places and quickly jump to tags</li>
+<li>tables</li>
 </ul>
 
 <h2>
 <a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots</h2>
 
-<p><img src="https://raw.githubusercontent.com/vimwiki/vimwiki/dev/doc/screenshot_1.png" alt="screenshot1">
-<img src="https://raw.githubusercontent.com/vimwiki/vimwiki/dev/doc/screenshot_2.png" alt="screenshot2"></p>
+<p><img src="https://raw.githubusercontent.com/vimwiki/vimwiki/master/doc/screenshot_1.png" alt="screenshot1">
+<img src="https://raw.githubusercontent.com/vimwiki/vimwiki/master/doc/screenshot_2.png" alt="screenshot2"></p>
 
-<p>To do a quick start press <code>&lt;Leader&gt;ww</code> (this is usually <code>\ww</code>) to go to your index
-wiki file.  By default it is located in <code>~/vimwiki/index.wiki</code>.</p>
+<h1>
+<a id="quickstart" class="anchor" href="#quickstart" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quickstart</h1>
+
+<p>Press <code>&lt;Leader&gt;ww</code> (this is usually <code>\ww</code>) to go to your index
+page.  By default it is located in <code>~/vimwiki/index.wiki</code>.</p>
 
 <p>Feed it with the following example:</p>
 
@@ -57,9 +73,8 @@ wiki file.  By default it is located in <code>~/vimwiki/index.wiki</code>.</p>
     * Scratchpad -- various temporary stuff.
 </code></pre>
 
-<p>Place your cursor on <code>Tasks</code> and press Enter to create a link.  Once pressed,
-<code>Tasks</code> will become <code>[[Tasks]]</code> -- a Vimwiki link.  Press Enter again to
-open it.  Edit the file, save it, and then press Backspace to jump back to your
+<p>Place your cursor on <code>Tasks</code> and press Enter to create a link.  Press Enter again to
+open it.  Edit the new page, save it, and press Backspace to jump back to your
 index.</p>
 
 <p>A Vimwiki link can be constructed from more than one word.  Just visually
@@ -72,37 +87,34 @@ The result should look something like:</p>
     * Scratchpad -- various temporary stuff.
 </code></pre>
 
+<p>See <code>:h vimwiki</code> for the full documentation.</p>
+
 <h2>
-<a id="basic-markup" class="anchor" href="#basic-markup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic Markup</h2>
+<a id="basic-markup-default-syntax" class="anchor" href="#basic-markup-default-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic markup (default syntax)</h2>
 
 <pre><code>= Header1 =
 == Header2 ==
 === Header3 ===
 
+*bold text*
+_italic text_
 
-*bold* -- bold text
-_italic_ -- italic text
+[[wiki link]]
+[[wiki link|description]]
 
-[[wiki link]] -- wiki link
-[[wiki link|description]] -- wiki link with description
-</code></pre>
+* bullet list item 1
+* bullet list item 2
+    a) numbered list item 1
+    b) numbered list item 2
 
-<p>Lists:</p>
+{{{python
+def greet(s):
+    print("Hello, " + s)
+}}}
 
-<pre><code>* bullet list item 1
-    - bullet list item 2
-    - bullet list item 3
-        * bullet list item 4
-        * bullet list item 5
-* bullet list item 6
-* bullet list item 7
-    - bullet list item 8
-    - bullet list item 9
-
-1. numbered list item 1
-2. numbered list item 2
-    a) numbered list item 3
-    b) numbered list item 4
+| a table |  |
+|---------|--|
+|         |  |
 </code></pre>
 
 <p>For other syntax elements, see <code>:h vimwiki-syntax</code></p>
@@ -110,31 +122,19 @@ _italic_ -- italic text
 <h2>
 <a id="key-bindings" class="anchor" href="#key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key bindings</h2>
 
-<p>normal mode:</p>
-
 <ul>
 <li>
-<code>&lt;Leader&gt;ww</code> -- Open default wiki index file.</li>
+<code>&lt;Leader&gt;ww</code> – Open the default wiki index file</li>
 <li>
-<code>&lt;Leader&gt;wt</code> -- Open default wiki index file in a new tab.</li>
+<code>&lt;Leader&gt;ws</code> – Select and open wiki index file</li>
 <li>
-<code>&lt;Leader&gt;ws</code> -- Select and open wiki index file.</li>
+<code>&lt;Enter&gt;</code> – Follow/Create wiki link</li>
 <li>
-<code>&lt;Leader&gt;wd</code> -- Delete wiki file you are in.</li>
+<code>&lt;Backspace&gt;</code> – Go back to parent(previous) wiki link</li>
 <li>
-<code>&lt;Leader&gt;wr</code> -- Rename wiki file you are in.</li>
+<code>&lt;Tab&gt;</code> – Find next wiki link</li>
 <li>
-<code>&lt;Enter&gt;</code> -- Follow/Create wiki link</li>
-<li>
-<code>&lt;Shift-Enter&gt;</code> -- Split and follow/create wiki link</li>
-<li>
-<code>&lt;Ctrl-Enter&gt;</code> -- Vertical split and follow/create wiki link</li>
-<li>
-<code>&lt;Backspace&gt;</code> -- Go back to parent(previous) wiki link</li>
-<li>
-<code>&lt;Tab&gt;</code> -- Find next wiki link</li>
-<li>
-<code>&lt;Shift-Tab&gt;</code> -- Find previous wiki link</li>
+<code>&lt;Shift-Tab&gt;</code> – Find previous wiki link</li>
 </ul>
 
 <p>For more keys, see <code>:h vimwiki-mappings</code></p>
@@ -144,12 +144,12 @@ _italic_ -- italic text
 
 <ul>
 <li>
-<code>:Vimwiki2HTML</code> -- Convert current wiki link to HTML</li>
+<code>:Vimwiki2HTML</code> – Convert current wiki page to HTML</li>
 <li>
-<code>:VimwikiAll2HTML</code> -- Convert all your wiki links to HTML</li>
-<li>
-<code>:help vimwiki-commands</code> -- list all commands</li>
+<code>:VimwikiAll2HTML</code> – Convert all your wiki pages to HTML</li>
 </ul>
+
+<p>For more, see <code>:h vimwiki-commands</code></p>
 
 <h1>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h1>
@@ -176,7 +176,7 @@ cd bundle
 git clone https://github.com/vimwiki/vimwiki.git
 </code></pre>
 
-<p>Or download the <a href="https://github.com/vimwiki/vimwiki/archive/master.zip">zip archive</a> and extract it in <code>~/.vim/bundle/</code></p>
+<p>Alternatively, download the latest stable version (<a href="http://github.com/vimwiki/vimwiki/zipball/master">zip</a> <a href="http://github.com/vimwiki/vimwiki/tarball/master">tar</a>) or the latest development version (<a href="http://github.com/vimwiki/vimwiki/zipball/dev">zip</a> <a href="http://github.com/vimwiki/vimwiki/tarball/dev">tar</a>) and extract it into <code>~/.vim/bundle/</code></p>
 
 <p>Then launch Vim, run <code>:Helptags</code> and then <code>:help vimwiki</code> to verify it was installed.</p>
       </section>
