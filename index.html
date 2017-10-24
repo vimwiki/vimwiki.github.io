@@ -152,6 +152,8 @@ def greet(s):
 
 <h1>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h1>
+<p>Use the Plugin-manager of your choice to install vimwiki.
+Currently the usage of the <code>dev</code>-branch is recommended.</p>
 
 <h2>
 <a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h2>
@@ -164,6 +166,18 @@ syntax on
 </code></pre>
 
 <p>Without them Vimwiki will not work properly.</p>
+
+
+<h2>
+<a id="installation-using-plug" class="anchor" href="#installation-using-plug" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation using <a href="https://github.com/junegunn/vim-plug">Vim-Plug</a>
+</h2>
+
+<p>Add the following to the plugin-configuration in your vimrc:</p>
+<pre><code>
+Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
+</code></pre>
+
+<p>Then run <code>:PlugInstall</code>.</p>
 
 <h2>
 <a id="installation-using-pathogen" class="anchor" href="#installation-using-pathogen" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation using <a href="http://www.vim.org/scripts/script.php?script_id=2332">Pathogen</a>
